@@ -19,6 +19,16 @@ function rbserver() {
   ruby -run -e httpd . -p $@
 }
 
+function filter-branch-email() {
+  git filter-branch -f --env-filter "export GIT_AUTHOR_EMAIL=$1"
+}
+
+function filter-branch-name() {
+  git filter-branch -f --env-filter "export GIT_AUTHOR_NAME=$1"
+}
+
+### export paths
+
 export PATH="/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/Applications/adt/tools/:$PATH"
