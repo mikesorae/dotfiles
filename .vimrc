@@ -1,5 +1,3 @@
-colorscheme molokai
-
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
 
@@ -14,6 +12,10 @@ if has("gui_macvim")
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
+
+" color scheme
+NeoBundle 'tomasr/molokai'
+NeoBundle 'ujihisa/unite-colorscheme'
 
 " 暗黒美夢王枠
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -48,6 +50,7 @@ NeoBundleLazy 'alpaca-tc/beautify.vim', {
 
 call neobundle#end()
 
+colorscheme molokai
 
 " global setting
 set nocompatible      " We're running Vim, not Vi!
