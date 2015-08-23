@@ -66,3 +66,6 @@ setopt share_history
 
 ### keybinding
 bindkey -e
+
+### rbenv
+eval "$(rbenv init -)"
