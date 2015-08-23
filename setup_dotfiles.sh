@@ -12,3 +12,7 @@ fi
 if [ ! -e ~/.zshrc ] && [ ! -L ~/.zshrc ]; then
   ln -s "$cwd"/.zshrc ~/.zshrc
 fi
+
+if [ ! -e ~/.vimrc ] && [ ! -L ~/.vimrc ]; then
+  ln -s "$cwd"/.vimrc ~/vimrc
+fi
