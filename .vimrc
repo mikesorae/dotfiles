@@ -6,13 +6,14 @@ set backspace=indent,eol,start
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   set runtimepath+=~/.vim/neocomplete
-  call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
 if has("gui_macvim")
   let macvim_hig_shift_movement = 1
   set guifont=Monaco:h16
 endif
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " 暗黒美夢王枠
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -27,14 +28,8 @@ NeoBundle "osyo-manga/vim-over"
 " indent guide
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-" web api
-NeoBundle 'mattn/webapi-vim'
-
 " for Ruby
 NeoBundle 'vim-ruby/vim-ruby'
-
-" excel
-NeoBundle 'mattn/excelview-vim'
 
 " for rails
 NeoBundle "slim-template/vim-slim"
@@ -51,8 +46,8 @@ NeoBundleLazy 'alpaca-tc/beautify.vim', {
       \ ]
       \ }}
 
-" for Git
-NeoBundle 'tpope/vim-fugitive'
+call neobundle#end()
+
 
 " global setting
 set nocompatible      " We're running Vim, not Vi!
