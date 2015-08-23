@@ -47,9 +47,6 @@ export SHELL='zsh'
 autoload colors
 colors
 
-PROMPT="%{${fg[green]}%}(@p@)%n@%~$%{${reset_color}%} "
-PROMPT2='> '
-
 ### zsh-completions
 fpath=(/opt/boxen/homebrew/share/zsh-completions $fpath)
 autoload -Uz compinit
