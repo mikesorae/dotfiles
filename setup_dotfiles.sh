@@ -2,7 +2,8 @@
 
 set -eux
 
-cwd=`dirname $0`
+cwd=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
 
 if [ ! -e ~/.tmuxinator ] && [ ! -L ~/.tmuxinator ]; then
   ln -s "$cwd"/.tmuxinator ~/.tmuxinator
