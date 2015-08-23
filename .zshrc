@@ -7,6 +7,12 @@ alias openwithvim="open -a /Applications/MacVim.app"
 alias ql='qlmanage -p $@ >& /dev/null'
 alias cal="gcal -i"
 
+### zsh plugins
+plugins=(git)
+export ZSH=/Users/nishina/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+source $ZSH/oh-my-zsh.sh
+
 ### Utility functions
 
 function gi() { curl -L https://www.gitignore.io/api/$@ ;}
