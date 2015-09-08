@@ -1,6 +1,6 @@
 ### aliases
 
-alias ll='ls -l'
+alias ll='ls -la'
 alias ls='ls -la'
 alias rm="trash"
 alias openwithvim="open -a /Applications/MacVim.app"
@@ -9,7 +9,7 @@ alias cal="gcal -i"
 
 ### zsh plugins
 plugins=(git)
-export ZSH=/Users/nishina/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
