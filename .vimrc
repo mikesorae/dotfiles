@@ -1,14 +1,6 @@
-" インサートモード時にバックスペースを使う
-set backspace=indent,eol,start
-
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   set runtimepath+=~/.vim/neocomplete
-endif
-
-if has("gui_macvim")
-  let macvim_hig_shift_movement = 1
-  set guifont=Monaco:h16
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
@@ -74,6 +66,14 @@ set noswapfile
 set nobackup
 set tw=0
 set laststatus=2
+
+" インサートモード時にバックスペースを使う
+set backspace=indent,eol,start
+
+if has("gui_macvim")
+  let macvim_hig_shift_movement = 1
+  set guifont=Monaco:h16
+endif
 
 " settings for vim indent
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
