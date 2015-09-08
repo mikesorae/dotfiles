@@ -16,6 +16,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " color scheme
 NeoBundle 'tomasr/molokai'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'NLKNguyen/papercolor-theme'
 
 " 暗黒美夢王枠
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -26,6 +27,9 @@ NeoBundle 'Shougo/vinarise.git'
 " regular expresion
 NeoBundle 'othree/eregex.vim'
 NeoBundle "osyo-manga/vim-over"
+
+" airline
+NeoBundle 'bling/vim-airline.git'
 
 " indent guide
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -50,9 +54,12 @@ NeoBundleLazy 'alpaca-tc/beautify.vim', {
 
 call neobundle#end()
 
-colorscheme molokai
+colorscheme papercolor
 
 " global setting
+set clipboard=unnamed " copy buffer to clipboard
+set hlsearch
+set number
 set nocompatible      " We're running Vim, not Vi!
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
@@ -66,6 +73,7 @@ set expandtab
 set noswapfile
 set nobackup
 set tw=0
+set laststatus=2
 
 " settings for vim indent
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
