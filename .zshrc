@@ -1,3 +1,9 @@
+### zsh plugins
+plugins=(git)
+export ZSH=~/.oh-my-zsh
+ZSH_THEME="robbyrussell"
+source $ZSH/oh-my-zsh.sh
+
 ### aliases
 
 alias ll='ls -la'
@@ -6,12 +12,6 @@ alias rm="trash"
 alias openwithvim="open -a /Applications/MacVim.app"
 alias ql='qlmanage -p $@ >& /dev/null'
 alias cal="gcal -i"
-
-### zsh plugins
-plugins=(git)
-export ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-source $ZSH/oh-my-zsh.sh
 
 ### Utility functions
 
@@ -72,3 +72,7 @@ eval "$(rbenv init -)"
 
 ### nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+### java
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+
