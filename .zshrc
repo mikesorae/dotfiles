@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias ls='ls -l'
 alias ll='ls -la'
-alias lm='ls -la | more'
+alias lm='ls -la | less'
 alias rm="trash"
 alias openwithvim="open -a /Applications/MacVim.app"
 alias ql='qlmanage -p $@ >& /dev/null'
