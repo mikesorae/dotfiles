@@ -13,8 +13,24 @@ NeoBundle 'NLKNguyen/papercolor-theme'
 " 暗黒美夢王枠
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vinarise.git'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
+
+" unite plugin
+NeoBundle 'lambdalisue/unite-grep-vcs'
+
+NeoBundle 'yegappan/mru'
 
 " regular expresion
 NeoBundle 'othree/eregex.vim'
@@ -115,10 +131,23 @@ hi PMenuSbar ctermbg=6
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
 
+" snipet
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
 " map for unite
 nnoremap <Space>u :<C-u>Unite file<CR>
 nnoremap <Space>b :<C-u>Unite buffer<CR>
 nnoremap <Space>f :<C-u>Unite bookmark<CR>
+
+nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
+nnoremap <silent> UF :<C-u>Unite file_rec/git<CR>
+nnoremap <silent> Ub :<C-u>Unite buffer<CR>
+nnoremap <silent> Um :<C-u>Unite file_mru<CR>
+nnoremap <silent> Ug :<C-u>Unite grep/git:. -buffer-name=search-buffer<CR>
+nnoremap <silent> Ur :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent> Ut :<C-u>Unite tab<CR>
 
 " Start insert.
 let g:unite_enable_start_insert = 1
@@ -143,6 +172,16 @@ function! s:unite_my_settings()"{{{
   imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
   imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
 endfunction"}}}
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" yank保存
+let g:unite_source_history_yank_enable = 1
 
 " open cwindow automatically after grep
 autocmd QuickFixCmdPost *grep* copen
