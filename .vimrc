@@ -137,10 +137,6 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 " map for unite
-nnoremap <Space>u :<C-u>Unite file<CR>
-nnoremap <Space>b :<C-u>Unite buffer<CR>
-nnoremap <Space>f :<C-u>Unite bookmark<CR>
-
 nnoremap <silent> Uf :<C-u>UniteWithBufferDir -buffer-name=files file file/new<CR>
 nnoremap <silent> UF :<C-u>Unite file_rec/git<CR>
 nnoremap <silent> Ub :<C-u>Unite buffer<CR>
