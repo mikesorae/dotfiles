@@ -1,7 +1,7 @@
 ### zsh plugins
 plugins=(git)
 export ZSH=~/.oh-my-zsh
-ZSH_THEME="robbyrussell"
+ZSH_THEME="wedisagree"
 source $ZSH/oh-my-zsh.sh
 
 ### aliases
