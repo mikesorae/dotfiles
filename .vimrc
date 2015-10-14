@@ -48,6 +48,10 @@ NeoBundle 'vim-ruby/vim-ruby'
 " for rails
 NeoBundle "slim-template/vim-slim"
 
+" for frontend
+NeoBundle "pangloss/vim-javascript"
+NeoBundle "mxw/vim-jsx"
+
 " for html coding
 NeoBundle 'mattn/emmet-vim'
 NeoBundleLazy 'alpaca-tc/beautify.vim', {
