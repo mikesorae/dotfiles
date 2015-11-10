@@ -12,11 +12,12 @@ NeoBundle 'NLKNguyen/papercolor-theme'
 
 " 暗黒美夢王枠
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vinarise.git'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vinarise.git'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -29,8 +30,6 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 " unite plugin
 NeoBundle 'lambdalisue/unite-grep-vcs'
-
-NeoBundle 'yegappan/mru'
 
 " regular expresion
 NeoBundle 'othree/eregex.vim'
