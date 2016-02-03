@@ -57,13 +57,16 @@ compinit -u
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 # save history
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000
-SAVEHIST=100000
+export HISTFILE=$HOME/.zsh-history
+export HISTSIZE=100000
+export SAVEHIST=100000
 setopt extended_history
 function history-all { history -E 1 }
 setopt inc_append_history
 setopt share_history
+
+# ansible environments
+export ANSIBLE_COW_SELECTION=random
 
 ### keybinding
 bindkey -e
@@ -77,3 +80,5 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 ### java
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
 
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
