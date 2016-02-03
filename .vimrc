@@ -63,6 +63,11 @@ NeoBundleLazy 'alpaca-tc/beautify.vim', {
       \ ]
       \ }}
 
+" for ansible
+NeoBundle 'chase/vim-ansible-yaml'
+
+NeoBundle 'mattn/webapi-vim'
+
 call neobundle#end()
 
 colorscheme papercolor
@@ -149,7 +154,7 @@ nnoremap <silent> Ur :<C-u>UniteResume search-buffer<CR>
 nnoremap <silent> Ut :<C-u>Unite tab<CR>
 
 " Start insert.
-let g:unite_enable_start_insert = 1
+" let g:unite_enable_start_insert = 1
 let g:unite_enable_short_source_names = 1
 
 autocmd FileType unite call s:unite_my_settings()
