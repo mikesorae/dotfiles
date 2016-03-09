@@ -68,9 +68,18 @@ NeoBundle 'chase/vim-ansible-yaml'
 
 NeoBundle 'mattn/webapi-vim'
 
+NeoBundle 'thinca/vim-quickrun'
+let g:quickrun_config = {
+\   "_" : {
+\       "outputter/buffer/split" : ":botright 8sp",
+\       "outputter/buffer/close_on_empty" : 1
+\   }
+\}
+
 call neobundle#end()
 
-colorscheme papercolor
+" colorscheme papercolor
+colorscheme molokai
 
 " global setting
 set clipboard=unnamed " copy buffer to clipboard
