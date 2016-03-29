@@ -50,6 +50,7 @@ NeoBundle "slim-template/vim-slim"
 " for frontend
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "mxw/vim-jsx"
+NeoBundle "digitaltoad/vim-jade.git"
 
 " for html coding
 NeoBundle 'mattn/emmet-vim'
@@ -78,8 +79,8 @@ let g:quickrun_config = {
 
 call neobundle#end()
 
-" colorscheme papercolor
-colorscheme molokai
+colorscheme papercolor
+" colorscheme molokai
 
 " global setting
 set clipboard=unnamed " copy buffer to clipboard
@@ -99,6 +100,13 @@ set noswapfile
 set nobackup
 set tw=0
 set laststatus=2
+
+" バッファ切り替え
+nnoremap <silent> gp :bprevious<CR>
+nnoremap <silent> gn :bnext<CR>
+
+" ファイルがない場合に作成
+nnoremap <silent> gfc :e <cfile><cr>
 
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
