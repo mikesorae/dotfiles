@@ -1,8 +1,7 @@
-### zsh plugins
-plugins=(git)
-export ZSH=~/.oh-my-zsh
-ZSH_THEME="wedisagree"
-source $ZSH/oh-my-zsh.sh
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
 
 ### aliases
 
@@ -13,6 +12,10 @@ alias rm="trash"
 alias openwithvim="open -a /Applications/MacVim.app"
 alias ql='qlmanage -p $@ >& /dev/null'
 alias cal="gcal -i"
+alias md2pdf='markdown-pdf -s ~/.css/github.css'
+alias be='bundle exec'
+
+alias git-search-branch='git branch -r --merged | grep $@'
 
 ### Utility functions
 
@@ -26,12 +29,25 @@ function rbserver() {
   ruby -run -e httpd . -p $@
 }
 
+function docker-machine-up() {
+  docker-machine start default
+  eval "$(docker-machine env default)"  
+}
+
 function filter-branch-email() {
   git filter-branch -f --env-filter "export GIT_AUTHOR_EMAIL=$1"
 }
 
 function filter-branch-name() {
   git filter-branch -f --env-filter "export GIT_AUTHOR_NAME=$1"
+}
+
+function use_java7() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+}
+
+function use_java8() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 }
 
 ### export paths
@@ -42,6 +58,7 @@ export PATH="/Applications/adt/tools/:$PATH"
 
 ### for tmux
 export EDITOR='vi'
+export VISUAL='vi'
 export SHELL='zsh'
 
 ### zsh prompt setting
@@ -78,7 +95,27 @@ eval "$(rbenv init -)"
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 ### java
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+### docker-machine
+eval "$(docker-machine env default)"  
+
+### pecoでhistory検索
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey '^r' peco-select-history
