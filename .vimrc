@@ -35,6 +35,9 @@ NeoBundle 'lambdalisue/unite-grep-vcs'
 NeoBundle 'othree/eregex.vim'
 NeoBundle "osyo-manga/vim-over"
 
+" File Tree Viewer
+NeoBundle 'scrooloose/nerdtree'
+
 " airline
 NeoBundle 'bling/vim-airline.git'
 
@@ -51,6 +54,7 @@ NeoBundle "slim-template/vim-slim"
 NeoBundle "pangloss/vim-javascript"
 NeoBundle "mxw/vim-jsx"
 NeoBundle "digitaltoad/vim-jade.git"
+NeoBundle "lilydjwg/colorizer"
 
 " for html coding
 NeoBundle 'mattn/emmet-vim'
@@ -107,6 +111,9 @@ nnoremap <silent> gn :bnext<CR>
 
 " ファイルがない場合に作成
 nnoremap <silent> gfc :e <cfile><cr>
+
+" NERDTree表示
+nnoremap <silent> Nf :NERDTree<CR>
 
 " インサートモード時にバックスペースを使う
 set backspace=indent,eol,start
