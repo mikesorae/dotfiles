@@ -123,6 +123,9 @@ if has("gui_macvim")
   set guifont=Monaco:h16
 endif
 
+" USキーボード用
+nnoremap + :
+
 " settings for vim indent
 " vim立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup=1
